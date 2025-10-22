@@ -1,5 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 import {
+  Home,
   LayoutDashboard,
   Package,
   ShoppingCart,
@@ -36,21 +37,27 @@ import { useState } from "react";
 
 const menuItems = [
   {
-    title: "Dashboard",
-    icon: LayoutDashboard,
+    title: "Home",
+    icon: Home,
     url: "/",
   },
   {
-    title: "Inventory & Stock",
+    title: "Inventory & Stock Control",
     icon: Package,
     subItems: [
-      { title: "Stock Summary", url: "/inventory/summary" },
-      { title: "Expiry Alerts", url: "/inventory/expiry" },
+      { title: "Dashboard Overview", url: "/inventory/dashboard" },
+      { title: "Real-Time Stock Summary", url: "/inventory/summary" },
+      { title: "Expiry Alerts & Insights", url: "/inventory/expiry" },
+      { title: "Out-of-Stock Warnings", url: "/inventory/out-of-stock" },
       { title: "Item Management", url: "/inventory/items" },
+      { title: "Bulk Import via Barcode/QR", url: "/inventory/bulk-import" },
+      { title: "Medicine Composition Details", url: "/inventory/composition" },
+      { title: "Substitute Drug Mapping", url: "/inventory/substitutes" },
       { title: "Stock Adjustment", url: "/inventory/adjustment" },
       { title: "Branch Transfer", url: "/inventory/transfer" },
       { title: "Reorder Management", url: "/inventory/reorder" },
-      { title: "Barcode & QR", url: "/inventory/barcode" },
+      { title: "Predictive Refill Advisor", url: "/inventory/predictive-refill" },
+      { title: "Barcode & QR Integration", url: "/inventory/barcode" },
     ],
   },
   {
@@ -58,7 +65,7 @@ const menuItems = [
     icon: ShoppingCart,
     subItems: [
       { title: "Purchase Orders", url: "/purchase/orders" },
-      { title: "Goods Receipt (GRN)", url: "/purchase/grn" },
+      { title: "Goods Receipt Notes (GRN)", url: "/purchase/grn" },
       { title: "Supplier Management", url: "/purchase/suppliers" },
       { title: "Returns & Replacements", url: "/purchase/returns" },
     ],
@@ -74,11 +81,11 @@ const menuItems = [
     ],
   },
   {
-    title: "Expiry & Waste Control",
+    title: "Expiry, Returns & Waste Control",
     icon: AlertTriangle,
     subItems: [
       { title: "Expiry Tracker", url: "/expiry/tracker" },
-      { title: "Returns Management", url: "/expiry/returns" },
+      { title: "Returns", url: "/expiry/returns" },
       { title: "Waste Management", url: "/expiry/waste" },
     ],
   },
@@ -93,32 +100,32 @@ const menuItems = [
     ],
   },
   {
-    title: "AI Assistant",
+    title: "AI Assistant & Automation",
     icon: Bot,
     subItems: [
       { title: "Smart Recommendations", url: "/ai/recommendations" },
-      { title: "Chatbot & Voice", url: "/ai/chatbot" },
+      { title: "Chatbot & Voice Assistant", url: "/ai/chatbot" },
       { title: "Anomaly Detection", url: "/ai/anomaly" },
       { title: "AI Prescription Reader", url: "/ai/prescription" },
     ],
   },
   {
-    title: "Integration",
+    title: "Integration & Connectivity",
     icon: Plug,
     subItems: [
-      { title: "Distributor APIs", url: "/integration/distributors" },
-      { title: "Accounting", url: "/integration/accounting" },
-      { title: "E-commerce", url: "/integration/ecommerce" },
-      { title: "IoT & RFID", url: "/integration/iot" },
+      { title: "Pharma Distributor APIs", url: "/integration/distributors" },
+      { title: "Accounting Integration", url: "/integration/accounting" },
+      { title: "E-commerce & Online Orders", url: "/integration/ecommerce" },
+      { title: "IoT & RFID Integration", url: "/integration/iot" },
     ],
   },
   {
-    title: "Warehouse & Branches",
+    title: "Warehouse & Multi-Branch Management",
     icon: Warehouse,
     subItems: [
       { title: "Warehouse Overview", url: "/warehouse/overview" },
       { title: "Branch Operations", url: "/warehouse/branches" },
-      { title: "Cold Storage", url: "/warehouse/cold-storage" },
+      { title: "Cold Storage Monitoring", url: "/warehouse/cold-storage" },
     ],
   },
   {
@@ -132,52 +139,56 @@ const menuItems = [
     ],
   },
   {
-    title: "Smart Procurement",
+    title: "Smart Procurement & Vendor Portal",
     icon: ShoppingBag,
     subItems: [
       { title: "Vendor Portal", url: "/procurement/vendors" },
       { title: "Dynamic Procurement", url: "/procurement/dynamic" },
-      { title: "Quality Grading", url: "/procurement/quality" },
+      { title: "Medicine Quality Grading", url: "/procurement/quality" },
     ],
   },
   {
-    title: "User Management",
+    title: "User & Role Management",
     icon: Users,
     subItems: [
       { title: "Role Permissions", url: "/users/roles" },
-      { title: "Device Access", url: "/users/devices" },
+      { title: "Device Access Monitoring", url: "/users/devices" },
     ],
   },
   {
-    title: "Settings",
+    title: "Settings & Configuration",
     icon: Settings,
     subItems: [
-      { title: "Organization", url: "/settings/organization" },
-      { title: "Notifications", url: "/settings/notifications" },
+      { title: "Organization Details", url: "/settings/organization" },
+      { title: "Notification Preferences", url: "/settings/notifications" },
       { title: "Backup & Recovery", url: "/settings/backup" },
       { title: "API & Webhooks", url: "/settings/api" },
     ],
   },
   {
-    title: "Health Integration",
+    title: "Help & Support",
+    icon: HelpCircle,
+    subItems: [
+      { title: "Chat Support", url: "/support/chat" },
+      { title: "FAQs / Knowledge Base", url: "/support/faqs" },
+      { title: "Video Tutorials", url: "/support/videos" },
+    ],
+  },
+  {
+    title: "Smart Health Integration",
     icon: Activity,
     subItems: [
       { title: "EHR/EMR Sync", url: "/health/ehr" },
       { title: "Doctor Portal", url: "/health/doctors" },
-      { title: "Health Records", url: "/health/records" },
+      { title: "Health Record Linkage", url: "/health/records" },
     ],
-  },
-  {
-    title: "Help & Support",
-    icon: HelpCircle,
-    url: "/support",
   },
 ];
 
 export function AppSidebar() {
   const { open } = useSidebar();
   const location = useLocation();
-  const [openMenus, setOpenMenus] = useState<string[]>(["Inventory & Stock"]);
+  const [openMenus, setOpenMenus] = useState<string[]>(["Inventory & Stock Control"]);
 
   const toggleMenu = (title: string) => {
     setOpenMenus((prev) =>
