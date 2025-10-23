@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/layout/AppSidebar";
 import { Header } from "@/components/layout/Header";
+import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import StockSummary from "./pages/inventory/StockSummary";
 import ExpiryAlerts from "./pages/inventory/ExpiryAlerts";
@@ -27,8 +28,9 @@ const App = () => (
             <div className="flex-1 flex flex-col">
               <Header />
               <main className="flex-1 p-6 overflow-auto">
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/inventory/summary" element={<StockSummary />} />
                   <Route path="/inventory/expiry" element={<ExpiryAlerts />} />
                   <Route path="/sales/pos" element={<POSCounter />} />
