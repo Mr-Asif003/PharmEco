@@ -11,6 +11,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import ExpiryAlertsTable from "@/components/inventory/ExpiryAlertsTable";
 
 const expiryData = [
   {
@@ -232,6 +233,9 @@ const ExpiryAlerts = () => {
           </CardContent>
         </Card>
       </motion.div>
+
+      {/* //table from components */}
+      <ExpiryAlertsTable/>
     </div>
   );
 };
