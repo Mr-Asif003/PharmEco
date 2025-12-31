@@ -1,73 +1,74 @@
-# Welcome to your Lovable project
+PharmEco is a modern, scalable platform designed for medical retailers and pharmacies to manage their inventory, online store, orders, deliveries, and analytics in one unified system.
 
-## Project info
+The platform combines:
 
-**URL**: https://lovable.dev/projects/bc3b40b3-e1f7-449c-b5db-e3035a37cc2b
+Smart Inventory Management
 
-## How can I edit this code?
+Medical E-Commerce Storefront
 
-There are several ways of editing your application.
+Order & Delivery Management
 
-**Use Lovable**
+AI-driven Insights & Automation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/bc3b40b3-e1f7-449c-b5db-e3035a37cc2b) and start prompting.
+Customer Prescription-Based Ordering
 
-Changes made via Lovable will be committed automatically to this repo.
+PharmEco enables retailers to operate both offline and online, while allowing customers to upload prescriptions, find nearby medical stores, track deliveries, and receive medicines efficiently.
 
-**Use your preferred IDE**
+🚀 Key Capabilities
+🏪 For Medical Retailers
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Inventory & stock control with expiry tracking
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Barcode-based billing & item management
 
-Follow these steps:
+Online store creation & customization
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Order lifecycle management
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Delivery partner assignment & tracking
 
-# Step 3: Install the necessary dependencies.
-npm i
+Analytics, reports & performance insights
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+🧑‍⚕️ For Customers
 
-**Edit a file directly in GitHub**
+Prescription upload & medicine requests
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Nearby store discovery
 
-**Use GitHub Codespaces**
+Order tracking with live map
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Multiple retailer proposals & bidding
 
-## What technologies are used for this project?
+Secure and transparent medicine delivery
 
-This project is built with:
+🛠️ Tech Stack
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is built using a modern frontend-first stack:
 
-## How can I deploy this project?
+Vite – Fast development build tool
 
-Simply open [Lovable](https://lovable.dev/projects/bc3b40b3-e1f7-449c-b5db-e3035a37cc2b) and click on Share -> Publish.
+React – Component-based UI framework
 
-## Can I connect a custom domain to my Lovable project?
+TypeScript – Type-safe JavaScript
 
-Yes, you can!
+Tailwind CSS – Utility-first styling
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+shadcn/ui – Accessible, reusable UI components
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+🧩 Project Structure
+
+The application follows a modular structure separating major domains:
+
+Inventory Management
+
+Store & E-Commerce
+
+Orders & Fulfillment
+
+Analytics & Insights
+
+User & Role Management
+
+Compliance & Security
+
+Each module is designed to scale independently.
